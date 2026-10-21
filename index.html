@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101522" />
+    <meta name="description" content="Remove photo backgrounds in batches. Images are processed on your device." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <title>ClearCut — Batch Background Remover</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="ClearCut home">
+          <span class="brand-mark">C</span><span>clearcut<span class="brand-light">.</span></span>
+        </a>
+        <div class="privacy"><span class="privacy-dot"></span> On-device processing</div>
+      </header>
+      <main class="page">
+        <section class="hero">
+          <div class="eyebrow"><span class="sparkle">✦</span> BATCH BACKGROUND REMOVER</div>
+          <h1>Clean cutouts.<br><span>Less busywork.</span></h1>
+          <p class="intro">Remove backgrounds from lots of photos in one go. Your images stay in your browser while they’re processed.</p>
+        </section>
+
+        <section class="workspace">
+          <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose or drop photos">
+            <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp,image/avif" multiple hidden />
+            <div class="upload-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M4 15.5v3A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5v-3"/></svg></div>
+            <h2>Drop your photos here</h2>
+            <p>or <button id="browseBtn" class="text-button" type="button">browse files</button> from your device</p>
+            <div class="file-note">JPG, PNG, WEBP · Start with up to 100 photos</div>
+          </div>
+
+          <div class="toolbar">
+            <div>
+              <h2 class="section-title">Your photos <span id="countPill" class="count-pill">0</span></h2>
+              <p class="section-subtitle" id="queueHint">Add photos to create your batch.</p>
+            </div>
+            <button id="clearBtn" class="button button-quiet" type="button" disabled>Clear all</button>
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            <div class="empty-stack"><span>▧</span><span>▧</span><span>▧</span></div>
+            <strong>Your workspace is ready</strong>
+            <p>Selected photos will appear here with a preview and processing status.</p>
+          </div>
+          <div id="photoGrid" class="photo-grid" aria-live="polite"></div>
+
+          <div class="bottom-bar">
+            <div class="progress-wrap">
+              <div class="progress-label"><span id="statusText">Ready when you are</span><span id="progressText">0%</span></div>
+              <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+            </div>
+            <div class="actions">
+              <button id="processBtn" class="button button-primary" type="button" disabled><span>✦</span> Remove backgrounds</button>
+              <button id="downloadBtn" class="button button-dark" type="button" disabled>Download ZIP ↓</button>
+            </div>
+          </div>
+          <div id="message" class="message" role="status"></div>
+        </section>
+
+        <section class="feature-row">
+          <div><span class="feature-icon">⌁</span><strong>Private by design</strong><p>Images are processed locally in your browser.</p></div>
+          <div><span class="feature-icon">▦</span><strong>Batch workflow</strong><p>Queue many photos and download the results together.</p></div>
+          <div><span class="feature-icon">◈</span><strong>Transparent PNGs</strong><p>Keep the cutout ready for posters and designs.</p></div>
+        </section>
+        <footer><span>ClearCut Batch</span><span>Made for quick, private photo work</span></footer>
+      </main>
+      <div id="installBanner" class="install-banner" hidden>
+        <div><strong>Install ClearCut</strong><p>Add this tool to your Home Screen for quick access.</p></div>
+        <button id="installBtn" class="button button-primary" type="button">Install</button>
+        <button id="dismissInstall" class="icon-button" aria-label="Dismiss install prompt" type="button">×</button>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
